@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TowerDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/domain/TowerDefinition.cs" id="1"]
+
+[resource]
+script = ExtResource("1")
+Id = "arrow_tower"
+NameKey = "TOWER.RANGER.ARROW.NAME"
+Cost = 50
+BaseDamage = 18
+Range = 14.0
+FireInterval = 0.8

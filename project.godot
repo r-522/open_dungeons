@@ -1,0 +1,56 @@
+; Open Dungeons - Godot 4.3+ project
+config_version=5
+
+[application]
+config/name="Open Dungeons"
+config/description="Open world x Tower Defense x Action RPG (co-op PvE)"
+config/version="0.1.0"
+run/main_scene="res://scenes/ui/Title.tscn"
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+GameManager="*res://scripts/core/GameManager.cs"
+NetManager="*res://scripts/net/NetManager.cs"
+AudioManager="*res://scripts/core/AudioManager.cs"
+SaveManager="*res://scripts/core/SaveManager.cs"
+LocaleManager="*res://scripts/core/LocaleManager.cs"
+EventBus="*res://scripts/core/EventBus.cs"
+
+[display]
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+
+[dotnet]
+project/assembly_name="OpenDungeons"
+
+[input]
+move_forward={"deadzone":0.2,"events":[{"keycode":87,"physical_keycode":0,"unicode":0,"echo":false,"script":null,"device":-1,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"type":"InputEventKey"}]}
+move_back={"deadzone":0.2,"events":[{"keycode":83,"type":"InputEventKey"}]}
+move_left={"deadzone":0.2,"events":[{"keycode":65,"type":"InputEventKey"}]}
+move_right={"deadzone":0.2,"events":[{"keycode":68,"type":"InputEventKey"}]}
+jump={"deadzone":0.2,"events":[{"keycode":32,"type":"InputEventKey"}]}
+dash={"deadzone":0.2,"events":[{"keycode":16777237,"type":"InputEventKey"}]}
+crouch={"deadzone":0.2,"events":[{"keycode":16777238,"type":"InputEventKey"}]}
+attack_primary={"deadzone":0.5,"events":[{"button_index":1,"type":"InputEventMouseButton"}]}
+attack_secondary={"deadzone":0.5,"events":[{"button_index":2,"type":"InputEventMouseButton"}]}
+skill_1={"deadzone":0.2,"events":[{"keycode":69,"type":"InputEventKey"}]}
+skill_2={"deadzone":0.2,"events":[{"keycode":70,"type":"InputEventKey"}]}
+skill_3={"deadzone":0.2,"events":[{"keycode":86,"type":"InputEventKey"}]}
+skill_ultimate={"deadzone":0.2,"events":[{"keycode":90,"type":"InputEventKey"}]}
+tower_menu={"deadzone":0.2,"events":[{"keycode":84,"type":"InputEventKey"}]}
+interact={"deadzone":0.2,"events":[{"keycode":88,"type":"InputEventKey"}]}
+inventory={"deadzone":0.2,"events":[{"keycode":73,"type":"InputEventKey"}]}
+map={"deadzone":0.2,"events":[{"keycode":77,"type":"InputEventKey"}]}
+pause={"deadzone":0.2,"events":[{"keycode":4194305,"type":"InputEventKey"}]}
+
+[internationalization]
+locale/translations=PackedStringArray("res://localization/strings.ja.translation","res://localization/strings.en.translation","res://localization/strings.zh.translation","res://localization/strings.ko.translation","res://localization/strings.es.translation")
+locale/fallback="en"
+
+[physics]
+common/physics_ticks_per_second=30
+
+[rendering]
+renderer/rendering_method="forward_plus"

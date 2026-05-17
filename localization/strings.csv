@@ -1,0 +1,13 @@
+keys,ja,en,zh,ko,es
+UI.MAIN.PLAY,プレイ,Play,开始,플레이,Jugar
+UI.MAIN.QUIT,終了,Quit,退出,종료,Salir
+UI.MAIN.SETTINGS,設定,Settings,设置,설정,Ajustes
+JOB.KNIGHT.NAME,騎士,Knight,骑士,기사,Caballero
+JOB.BERSERKER.NAME,狂戦士,Berserker,狂战士,광전사,Berserker
+JOB.RANGER.NAME,レンジャー,Ranger,游侠,레인저,Explorador
+JOB.WIZARD.NAME,魔術師,Wizard,法师,마법사,Mago
+ENEMY.GOBLIN.NAME,ゴブリン,Goblin,哥布林,고블린,Goblin
+TOWER.RANGER.ARROW.NAME,矢の塔,Arrow Tower,箭塔,화살탑,Torre de Flechas
+PHASE.PREP,準備フェーズ,Preparation,准备阶段,준비 단계,Preparación
+PHASE.COMBAT,戦闘フェーズ,Combat,战斗阶段,전투 단계,Combate
+PHASE.RESULT,リザルト,Result,结算,결과,Resultado
