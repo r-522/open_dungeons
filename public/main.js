@@ -1,13 +1,10 @@
-// Open Dungeons landing — scroll reveals, stat count-up, cursor glow on feature cards.
+// Open Dungeons landing — scroll reveals, stat count-up, drifting embers.
 
 (() => {
   // ---- IntersectionObserver reveal ----
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
-      if (e.isIntersecting) {
-        e.target.classList.add("in");
-        io.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
     }
   }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
@@ -16,8 +13,7 @@
   const easeOut = (t) => 1 - Math.pow(1 - t, 3);
   const animateStat = (el) => {
     const target = parseInt(el.dataset.target || "0", 10);
-    const dur = 1400;
-    const start = performance.now();
+    const dur = 1400, start = performance.now();
     const tick = (now) => {
       const t = Math.min(1, (now - start) / dur);
       el.textContent = Math.floor(easeOut(t) * target).toString();
@@ -28,46 +24,37 @@
   };
   const statIo = new IntersectionObserver((entries) => {
     for (const e of entries) {
-      if (e.isIntersecting) {
-        animateStat(e.target);
-        statIo.unobserve(e.target);
-      }
+      if (e.isIntersecting) { animateStat(e.target); statIo.unobserve(e.target); }
     }
   }, { threshold: 0.6 });
   document.querySelectorAll(".stat-num").forEach((el) => statIo.observe(el));
 
-  // ---- cursor-following glow on feature cards ----
-  document.querySelectorAll(".feature").forEach((card) => {
-    card.addEventListener("pointermove", (ev) => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty("--mx", `${ev.clientX - r.left}px`);
-      card.style.setProperty("--my", `${ev.clientY - r.top}px`);
-    });
-  });
+  // ---- drifting embers (torchlight) ----
+  const host = document.getElementById("embers");
+  if (host && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    for (let i = 0; i < 28; i++) {
+      const e = document.createElement("span");
+      e.className = "ember";
+      e.style.left = `${Math.random() * 100}%`;
+      const dur = 9 + Math.random() * 12;
+      const delay = -Math.random() * dur;
+      e.style.animationDuration = `${dur}s`;
+      e.style.animationDelay = `${delay}s`;
+      const size = 2 + Math.random() * 3;
+      e.style.width = e.style.height = `${size}px`;
+      e.style.opacity = "1";
+      host.appendChild(e);
+    }
+  }
 
-  // ---- subtle parallax on hero orbs ----
-  const orbs = document.querySelectorAll(".bg-orb");
-  let raf = 0;
-  window.addEventListener("scroll", () => {
-    if (raf) return;
-    raf = requestAnimationFrame(() => {
-      const y = window.scrollY;
-      orbs.forEach((o, i) => {
-        const k = (i + 1) * 0.05;
-        o.style.transform = `translate3d(0, ${y * k}px, 0)`;
-      });
-      raf = 0;
-    });
-  }, { passive: true });
-
-  // ---- smooth-scroll nav active state ----
+  // ---- nav active-link ----
   const navLinks = document.querySelectorAll(".nav-links a");
   const targets = [...navLinks].map((a) => document.querySelector(a.getAttribute("href")));
   const setActive = () => {
     const y = window.scrollY + 120;
     let idx = 0;
     targets.forEach((t, i) => { if (t && t.offsetTop <= y) idx = i; });
-    navLinks.forEach((a, i) => a.style.color = i === idx ? "var(--ink)" : "");
+    navLinks.forEach((a, i) => a.style.color = i === idx ? "var(--gold-soft)" : "");
   };
   window.addEventListener("scroll", setActive, { passive: true });
   setActive();
