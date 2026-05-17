@@ -3,78 +3,285 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>オープン・ダンジョンズ</title>
-<meta name="description" content="オープンワールド × タワーディフェンス × アクションRPG（協力型PvE）" />
-<style>
-  :root { color-scheme: dark; }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; min-height: 100vh;
-    font-family: "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
-    color: #f3e9d2;
-    background:
-      radial-gradient(1200px 600px at 20% -10%, #4a2a6b 0%, transparent 60%),
-      radial-gradient(900px 500px at 90% 10%, #6b1f1f 0%, transparent 55%),
-      linear-gradient(180deg, #120a1c 0%, #07030d 100%);
-  }
-  header { padding: 64px 24px 24px; text-align: center; }
-  h1 {
-    font-size: clamp(36px, 6.5vw, 84px);
-    letter-spacing: 0.12em; margin: 0;
-    background: linear-gradient(180deg, #f3d77a, #d4a017 60%, #8a5a0d);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    text-shadow: 0 2px 20px rgba(212,160,23,0.25);
-  }
-  .tagline { margin-top: 12px; color: #c9b8e0; letter-spacing: 0.18em; }
-  main { max-width: 980px; margin: 0 auto; padding: 24px; }
-  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 32px; }
-  .card {
-    border: 1px solid rgba(212,160,23,0.35);
-    background: rgba(20,10,32,0.6);
-    border-radius: 10px; padding: 20px; backdrop-filter: blur(6px);
-  }
-  .card h3 { margin: 0 0 8px; color: #f3d77a; letter-spacing: 0.05em; }
-  .card p { margin: 0; color: #d9cdb6; font-size: 14px; line-height: 1.7; }
-  .cta { display: flex; gap: 12px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
-  .btn {
-    display: inline-block; padding: 12px 28px;
-    border: 1px solid #d4a017; border-radius: 6px;
-    color: #f3e9d2; text-decoration: none; letter-spacing: 0.12em;
-    background: linear-gradient(180deg, rgba(212,160,23,0.18), rgba(212,160,23,0.02));
-    transition: transform 0.15s ease, background 0.2s ease;
-  }
-  .btn:hover { transform: translateY(-1px); background: rgba(212,160,23,0.28); }
-  section.lore {
-    margin-top: 48px; padding: 24px; border-left: 3px solid #8a5a0d;
-    color: #d9cdb6; line-height: 1.9;
-  }
-  footer { text-align: center; padding: 48px 16px; color: #8c7fa3; font-size: 12px; }
-</style>
+<title>Open Dungeons — オープン・ダンジョンズ</title>
+<meta name="description" content="オープンワールド × タワーディフェンス × アクションRPG。最大4人協力PvE。Godot 4.3+ / .NET 8 製。" />
+<meta property="og:title" content="Open Dungeons" />
+<meta property="og:description" content="黄昏のダークファンタジー、しかし英雄譚。最大4人協力 PvE。" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230b0717'/%3E%3Cpath d='M32 10 L52 26 L44 54 L20 54 L12 26 Z' fill='%23d4a017'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-<header>
-  <h1>オープン・ダンジョンズ</h1>
-  <p class="tagline">オープンワールド × タワーディフェンス × アクションRPG</p>
-  <p class="tagline">最大4人協力 PvE</p>
-</header>
-<main>
-  <div class="cta">
-    <a class="btn" href="https://github.com/r-522/open_dungeons">GitHub</a>
-    <a class="btn" href="/status.json">サーバ状況</a>
+
+<div class="bg-mesh" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-orb orb-1" aria-hidden="true"></div>
+<div class="bg-orb orb-2" aria-hidden="true"></div>
+<div class="bg-orb orb-3" aria-hidden="true"></div>
+
+<nav class="nav">
+  <a class="nav-brand" href="#top">
+    <span class="brand-mark"></span>
+    <span>Open Dungeons</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">特徴</a>
+    <a href="#jobs">職業</a>
+    <a href="#systems">システム</a>
+    <a href="#roadmap">ロードマップ</a>
+    <a href="#tech">技術</a>
   </div>
-  <section class="grid">
-    <div class="card"><h3>4人協力プレイ</h3><p>ホスト権威の ENet 通信。協力 PvE に必要な範囲へ同期を絞り、操作感を最優先します。</p></div>
-    <div class="card"><h3>タワーディフェンス</h3><p>準備／戦闘／結果の3フェーズ。マナを集めて塔を設置、ウェーブを捌きます。</p></div>
-    <div class="card"><h3>ハクスラ装備</h3><p>Common から Mythic までの6段階。プレフィックス／サフィックス、最大+15強化。</p></div>
-    <div class="card"><h3>データ駆動</h3><p>職業・スキル・タワー・敵・アイテムはすべて Resource 定義。MOD も同じ枠組みで追加可能。</p></div>
-  </section>
-  <section class="lore">
-    黄昏のダークファンタジー、しかし英雄譚。<br />
-    拠点から出立し、フィールドを駆け、結界石にて防衛戦を行う。<br />
-    報酬を抱えて拠点へ戻り、装備を整え、次のエリアへ。<br />
-    その先にあるのは ── 魔王城。
-  </section>
-</main>
-<footer>&copy; Open Dungeons. プレアルファ・スキャフォールド版。Godot 4.3+ / .NET 8。</footer>
+  <a class="nav-cta" href="https://github.com/r-522/open_dungeons" target="_blank" rel="noopener">
+    <span>GitHub</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+  </a>
+</nav>
+
+<header id="top" class="hero">
+  <div class="hero-badge reveal">
+    <span class="dot"></span>
+    <span>v0.1.0 pre-alpha — 開発中</span>
+  </div>
+  <h1 class="hero-title reveal">
+    <span class="line">闇に踏み込み、</span>
+    <span class="line grad">結界を、解き放て。</span>
+  </h1>
+  <p class="hero-sub reveal">
+    オープンワールド × タワーディフェンス × アクションRPG。<br />
+    最大4人の協力 PvE で、魔王城の最深層まで。
+  </p>
+  <div class="hero-cta reveal">
+    <a class="btn btn-primary" href="#features">
+      <span>体験する</span>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <a class="btn btn-ghost" href="https://github.com/r-522/open_dungeons" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.07 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.89-.39.98 0 1.97.13 2.89.39 2.21-1.49 3.18-1.18 3.18-1.18.63 1.6.23 2.78.11 3.07.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.07.78 2.15v3.19c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+      <span>ソースコード</span>
+    </a>
+  </div>
+
+  <div class="hero-stats reveal">
+    <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-label">人協力 PvE</span></div>
+    <div class="stat"><span class="stat-num" data-target="38">0</span><span class="stat-label">職業（最終目標）</span></div>
+    <div class="stat"><span class="stat-num" data-target="24">0</span><span class="stat-label">エリア</span></div>
+    <div class="stat"><span class="stat-num" data-target="60">0</span><span class="stat-label">FPS 目標</span></div>
+  </div>
+
+  <div class="hero-card reveal">
+    <div class="card-head">
+      <div class="card-dots"><span></span><span></span><span></span></div>
+      <span class="card-title">session.log</span>
+    </div>
+    <pre class="card-body"><span class="c-mute">$</span> <span class="c-key">godot</span> --path . res://scenes/ui/Title.tscn
+<span class="c-mute">[GameManager]</span> boot
+<span class="c-mute">[GameManager]</span> Boot <span class="c-arrow">→</span> Title
+<span class="c-mute">[Net]</span> hosting on :27015
+<span class="c-mute">[Locale]</span> <span class="c-arrow">→</span> ja
+<span class="c-ok">✓</span> 4 jobs loaded <span class="c-mute">(knight, berserker, ranger, wizard)</span>
+<span class="c-ok">✓</span> WaveDirector ready <span class="c-mute">(forest_w1)</span>
+<span class="c-mute">[TD]</span> Idle <span class="c-arrow">→</span> Preparation <span class="c-arrow">→</span> Combat<span class="cursor">▌</span></pre>
+  </div>
+</header>
+
+<section id="features" class="section">
+  <div class="section-head reveal">
+    <div class="kicker">CORE EXPERIENCE</div>
+    <h2>準備し、駆け、守り、進む。</h2>
+    <p>拠点で構成を整え、フィールドを移動し、重要地点で結界を張り、報酬を抱えて次へ。<br/>オープンワールドの探索感と TD の緊張感を、途切れさせない。</p>
+  </div>
+  <div class="features">
+    <article class="feature glass reveal">
+      <div class="ic ic-shield"></div>
+      <h3>協力 PvE</h3>
+      <p>最大4人のホスト権威 ENet 通信。操作感を最優先に、敵 AI と戦利品はサーバ側で確定。</p>
+    </article>
+    <article class="feature glass reveal">
+      <div class="ic ic-tower"></div>
+      <h3>タワーディフェンス</h3>
+      <p>準備／戦闘／結果の3フェーズ。マナを集め、塔を組み、ウェーブを捌く。</p>
+    </article>
+    <article class="feature glass reveal">
+      <div class="ic ic-loot"></div>
+      <h3>ハクスラ装備</h3>
+      <p>Common → Mythic の6段階レアリティ、Prefix/Suffix、+15 強化、セット効果。</p>
+    </article>
+    <article class="feature glass reveal">
+      <div class="ic ic-data"></div>
+      <h3>データ駆動</h3>
+      <p>職業・スキル・タワー・敵は全て Godot Resource。MOD も同じ枠組みで安全に拡張。</p>
+    </article>
+    <article class="feature glass reveal">
+      <div class="ic ic-world"></div>
+      <h3>オープンワールド</h3>
+      <p>小ゾーン分割から開始し、将来は森林／雪山／砂漠／火山／廃都／魔王城へ。</p>
+    </article>
+    <article class="feature glass reveal">
+      <div class="ic ic-i18n"></div>
+      <h3>5言語対応</h3>
+      <p>日本語／英語／簡体中文／한국어／Español をはじめからサポート。</p>
+    </article>
+  </div>
+</section>
+
+<section id="jobs" class="section">
+  <div class="section-head reveal">
+    <div class="kicker">CLASSES</div>
+    <h2>4 つの役割で、戦線を組む。</h2>
+    <p>初期 4 職業から、最終目標 38 職業まで。データ駆動で段階拡張。</p>
+  </div>
+  <div class="jobs">
+    <article class="job glass reveal" data-tint="#d4a017">
+      <div class="job-role">TANK</div>
+      <h3>騎士</h3>
+      <p>前線維持と被ダメ軽減に優れたタンク。城壁塔で味方を支援する。</p>
+      <ul class="job-stats">
+        <li><span>HP</span><b>160</b></li>
+        <li><span>ATK</span><b>12</b></li>
+        <li><span>DEF</span><b>12</b></li>
+      </ul>
+    </article>
+    <article class="job glass reveal" data-tint="#b22222">
+      <div class="job-role">MELEE DPS</div>
+      <h3>狂戦士</h3>
+      <p>高火力の近接 DPS。憤怒解放で一点突破、棘の罠で確実に削る。</p>
+      <ul class="job-stats">
+        <li><span>HP</span><b>120</b></li>
+        <li><span>ATK</span><b>22</b></li>
+        <li><span>DEF</span><b>6</b></li>
+      </ul>
+    </article>
+    <article class="job glass reveal" data-tint="#3fbf6a">
+      <div class="job-role">RANGE DPS</div>
+      <h3>レンジャー</h3>
+      <p>遠距離処理と罠運用に長けた索敵型。矢の塔と捕縛で戦況を制御。</p>
+      <ul class="job-stats">
+        <li><span>HP</span><b>100</b></li>
+        <li><span>ATK</span><b>18</b></li>
+        <li><span>DEF</span><b>5</b></li>
+      </ul>
+    </article>
+    <article class="job glass reveal" data-tint="#7aa6ff">
+      <div class="job-role">SUPPORT</div>
+      <h3>魔術師</h3>
+      <p>範囲制圧と属性操作の支援職。氷結の塔で敵集団を減速。</p>
+      <ul class="job-stats">
+        <li><span>HP</span><b>90</b></li>
+        <li><span>ATK</span><b>8</b></li>
+        <li><span>DEF</span><b>4</b></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="systems" class="section">
+  <div class="section-head reveal">
+    <div class="kicker">SYSTEMS</div>
+    <h2>戦闘の中核を、3つのループで。</h2>
+  </div>
+  <div class="loops">
+    <div class="loop glass reveal">
+      <div class="loop-num">01</div>
+      <h3>準備フェーズ</h3>
+      <p>マナ収集 → 塔設置 → 編成調整 → 修理 → マップ確認。45 秒、戦況に応じて再突入。</p>
+    </div>
+    <div class="loop-arrow reveal">→</div>
+    <div class="loop glass reveal">
+      <div class="loop-num">02</div>
+      <h3>戦闘フェーズ</h3>
+      <p>ウェーブ生成は WaveDirector が担当。塔運用と直接戦闘を並行、ボスは別ロジック。</p>
+    </div>
+    <div class="loop-arrow reveal">→</div>
+    <div class="loop glass reveal">
+      <div class="loop-num">03</div>
+      <h3>リザルト</h3>
+      <p>戦利品確定、統計表示、経験値反映。LootGenerator が rarity-weighted で生成。</p>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap" class="section">
+  <div class="section-head reveal">
+    <div class="kicker">ROADMAP</div>
+    <h2>段階的に、確実に。</h2>
+  </div>
+  <ol class="timeline">
+    <li class="reveal done">
+      <div class="t-dot"></div>
+      <div class="t-body glass">
+        <div class="t-tag">Vertical Slice</div>
+        <h3>1職業 × 1マップ × 1ボス × 4人同期</h3>
+        <p>面白さ検証。スキャフォールド完了。</p>
+      </div>
+    </li>
+    <li class="reveal active">
+      <div class="t-dot"></div>
+      <div class="t-body glass">
+        <div class="t-tag">Core Release</div>
+        <h3>4職業 × 短編キャンペーン × 装備 × セーブ</h3>
+        <p>最小販売可能版。AES-256-GCM セーブ、5言語ローカライズ。</p>
+      </div>
+    </li>
+    <li class="reveal">
+      <div class="t-dot"></div>
+      <div class="t-body glass">
+        <div class="t-tag">Full Base</div>
+        <h3>12職業 × 複数バイオーム × ペット × ロビー</h3>
+      </div>
+    </li>
+    <li class="reveal">
+      <div class="t-dot"></div>
+      <div class="t-body glass">
+        <div class="t-tag">Long-term</div>
+        <h3>38職業 × 24エリア × MOD × Webショーケース</h3>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section id="tech" class="section">
+  <div class="section-head reveal">
+    <div class="kicker">TECH STACK</div>
+    <h2>堅実な土台。</h2>
+  </div>
+  <div class="tech">
+    <div class="tech-item glass reveal"><b>Godot 4.3+</b><span>Forward+ / Vulkan</span></div>
+    <div class="tech-item glass reveal"><b>C# / .NET 8</b><span>nullable enabled</span></div>
+    <div class="tech-item glass reveal"><b>ENet UDP</b><span>host-authoritative</span></div>
+    <div class="tech-item glass reveal"><b>Supabase</b><span>Postgres / Auth / Storage</span></div>
+    <div class="tech-item glass reveal"><b>Vercel</b><span>Web & 補助 API</span></div>
+    <div class="tech-item glass reveal"><b>Sentry</b><span>監視 / クラッシュ</span></div>
+    <div class="tech-item glass reveal"><b>GitHub Actions</b><span>CI / dotnet test</span></div>
+    <div class="tech-item glass reveal"><b>xUnit</b><span>ドメイン単体テスト</span></div>
+  </div>
+</section>
+
+<section class="cta-band reveal">
+  <div class="cta-inner glass">
+    <h2>はじめよう。</h2>
+    <p>リポジトリをクローンし、Godot で <code>F5</code>。</p>
+    <pre class="code"><span class="c-mute">$</span> git clone https://github.com/r-522/open_dungeons
+<span class="c-mute">$</span> cd open_dungeons
+<span class="c-mute">$</span> godot --editor .</pre>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://github.com/r-522/open_dungeons" target="_blank" rel="noopener">GitHub で開く</a>
+      <a class="btn btn-ghost" href="/status.json">ステータス確認</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-mark"></span>
+      <span>Open Dungeons</span>
+    </div>
+    <div class="foot-meta">
+      &copy; Open Dungeons. プレアルファ・スキャフォールド版。
+      <span class="dim">Godot 4.3+ / .NET 8 / Vercel</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/main.js"></script>
 </body>
 </html>
