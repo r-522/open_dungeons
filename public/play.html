@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>オープン・ダンジョンズ — プレイ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230c0a08'/%3E%3Cpath d='M32 8 L52 22 L46 50 L32 58 L18 50 L12 22 Z' fill='none' stroke='%23c89b3c' stroke-width='2'/%3E%3C/svg%3E" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/play.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <a class="back" href="/">◂ 戻る</a>
+  <div class="title">オープン・ダンジョンズ <span class="muted">— 簡易版（ブラウザ）</span></div>
+  <a class="src" href="https://github.com/r-522/open_dungeons" target="_blank" rel="noopener">GitHub</a>
+</header>
+
+<div id="screen" class="screen screen-menu">
+  <div class="panel">
+    <h1>職業を選べ</h1>
+    <p class="lead">最大のウェーブを生き延び、結界石を守れ。</p>
+    <div id="jobs" class="job-grid"></div>
+    <div class="ctrls">
+      <p class="muted small">操作: <b>WASD</b> 移動 ／ <b>左クリック</b> 攻撃 ／ <b>E</b> スキル ／ <b>F</b> アルティメット ／ <b>1〜4</b> 塔選択 ／ <b>右クリック</b> 塔を設置（準備中）／ <b>Space</b> 戦闘開始 ／ <b>P</b> ポーズ</p>
+    </div>
+    <button id="startBtn" class="btn-primary" disabled>出撃する</button>
+  </div>
+</div>
+
+<div id="game" class="game hidden">
+  <div class="hud">
+    <div class="hud-left">
+      <div class="bar">
+        <span class="lab">HP</span>
+        <div class="track"><div id="hpFill" class="fill hp"></div></div>
+        <span id="hpTxt" class="num"></span>
+      </div>
+      <div class="bar">
+        <span class="lab">MP</span>
+        <div class="track"><div id="mpFill" class="fill mp"></div></div>
+        <span id="mpTxt" class="num"></span>
+      </div>
+      <div class="bar">
+        <span class="lab">結界</span>
+        <div class="track"><div id="coreFill" class="fill core"></div></div>
+        <span id="coreTxt" class="num"></span>
+      </div>
+    </div>
+    <div class="hud-center">
+      <div id="phaseTxt" class="phase">準備フェーズ</div>
+      <div id="phaseSub" class="phase-sub"></div>
+    </div>
+    <div class="hud-right">
+      <div class="mana"><span>マナ</span><b id="manaTxt">0</b></div>
+      <div class="wave"><span>ウェーブ</span><b id="waveTxt">0 / 5</b></div>
+    </div>
+  </div>
+
+  <canvas id="cv" width="960" height="600"></canvas>
+
+  <div class="dock">
+    <div class="dock-row" id="towerDock"></div>
+    <div class="dock-hint" id="dockHint">準備中：塔を選んで右クリックで設置 ／ <b>Space</b> で戦闘へ</div>
+  </div>
+</div>
+
+<div id="result" class="screen screen-result hidden">
+  <div class="panel">
+    <h1 id="resultTitle">勝利</h1>
+    <p id="resultText" class="lead"></p>
+    <ul class="stats" id="resultStats"></ul>
+    <div class="row">
+      <button class="btn-primary" onclick="location.reload()">もう一度</button>
+      <a class="btn-ghost" href="/">トップへ</a>
+    </div>
+  </div>
+</div>
+
+<script src="/play.js"></script>
+</body>
+</html>
