@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/domain/EnemyDefinition.cs" id="1"]
+[resource]
+script = ExtResource("1")
+Id = "demon_lord"
+NameKey = "ENEMY.DEMON_LORD.NAME"
+Role = 6
+HP = 4200
+Attack = 60
+Speed = 2.8
+WeakTo = 5
+ExpReward = 1500
+ManaReward = 200

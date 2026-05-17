@@ -3,15 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Open Dungeons</title>
-<meta name="description" content="Open World x Tower Defense x Action RPG (co-op PvE)" />
+<title>オープン・ダンジョンズ</title>
+<meta name="description" content="オープンワールド × タワーディフェンス × アクションRPG（協力型PvE）" />
 <style>
   :root { color-scheme: dark; }
   * { box-sizing: border-box; }
   body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: ui-sans-serif, system-ui, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    margin: 0; min-height: 100vh;
+    font-family: "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
     color: #f3e9d2;
     background:
       radial-gradient(1200px 600px at 20% -10%, #4a2a6b 0%, transparent 60%),
@@ -20,60 +19,62 @@
   }
   header { padding: 64px 24px 24px; text-align: center; }
   h1 {
-    font-size: clamp(40px, 7vw, 88px);
-    letter-spacing: 0.08em;
-    margin: 0;
+    font-size: clamp(36px, 6.5vw, 84px);
+    letter-spacing: 0.12em; margin: 0;
     background: linear-gradient(180deg, #f3d77a, #d4a017 60%, #8a5a0d);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
     text-shadow: 0 2px 20px rgba(212,160,23,0.25);
   }
-  .tagline { margin-top: 12px; color: #c9b8e0; letter-spacing: 0.1em; }
-  main { max-width: 960px; margin: 0 auto; padding: 24px; }
+  .tagline { margin-top: 12px; color: #c9b8e0; letter-spacing: 0.18em; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px; }
   .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 32px; }
   .card {
     border: 1px solid rgba(212,160,23,0.35);
     background: rgba(20,10,32,0.6);
-    border-radius: 10px;
-    padding: 20px;
-    backdrop-filter: blur(6px);
+    border-radius: 10px; padding: 20px; backdrop-filter: blur(6px);
   }
-  .card h3 { margin: 0 0 8px; color: #f3d77a; }
-  .card p { margin: 0; color: #d9cdb6; font-size: 14px; line-height: 1.6; }
+  .card h3 { margin: 0 0 8px; color: #f3d77a; letter-spacing: 0.05em; }
+  .card p { margin: 0; color: #d9cdb6; font-size: 14px; line-height: 1.7; }
   .cta { display: flex; gap: 12px; justify-content: center; margin-top: 32px; flex-wrap: wrap; }
   .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border: 1px solid #d4a017;
-    border-radius: 6px;
-    color: #f3e9d2;
-    text-decoration: none;
+    display: inline-block; padding: 12px 28px;
+    border: 1px solid #d4a017; border-radius: 6px;
+    color: #f3e9d2; text-decoration: none; letter-spacing: 0.12em;
     background: linear-gradient(180deg, rgba(212,160,23,0.18), rgba(212,160,23,0.02));
-    letter-spacing: 0.08em;
     transition: transform 0.15s ease, background 0.2s ease;
   }
   .btn:hover { transform: translateY(-1px); background: rgba(212,160,23,0.28); }
+  section.lore {
+    margin-top: 48px; padding: 24px; border-left: 3px solid #8a5a0d;
+    color: #d9cdb6; line-height: 1.9;
+  }
   footer { text-align: center; padding: 48px 16px; color: #8c7fa3; font-size: 12px; }
 </style>
 </head>
 <body>
 <header>
-  <h1>OPEN DUNGEONS</h1>
-  <p class="tagline">Open World &times; Tower Defense &times; Action RPG &mdash; Co-op PvE</p>
+  <h1>オープン・ダンジョンズ</h1>
+  <p class="tagline">オープンワールド × タワーディフェンス × アクションRPG</p>
+  <p class="tagline">最大4人協力 PvE</p>
 </header>
 <main>
   <div class="cta">
     <a class="btn" href="https://github.com/r-522/open_dungeons">GitHub</a>
-    <a class="btn" href="/status.json">Status</a>
+    <a class="btn" href="/status.json">サーバ状況</a>
   </div>
   <section class="grid">
-    <div class="card"><h3>Co-op PvE</h3><p>Up to 4 players. Host-authoritative ENet networking.</p></div>
-    <div class="card"><h3>Tower Defense</h3><p>Prep / Combat / Result phases driven by wave templates.</p></div>
-    <div class="card"><h3>Hack &amp; Slash</h3><p>Common to Mythic loot, prefix/suffix affixes, +15 enhance.</p></div>
-    <div class="card"><h3>Data-Driven</h3><p>Jobs, towers, enemies, items all defined as Godot resources.</p></div>
+    <div class="card"><h3>4人協力プレイ</h3><p>ホスト権威の ENet 通信。協力 PvE に必要な範囲へ同期を絞り、操作感を最優先します。</p></div>
+    <div class="card"><h3>タワーディフェンス</h3><p>準備／戦闘／結果の3フェーズ。マナを集めて塔を設置、ウェーブを捌きます。</p></div>
+    <div class="card"><h3>ハクスラ装備</h3><p>Common から Mythic までの6段階。プレフィックス／サフィックス、最大+15強化。</p></div>
+    <div class="card"><h3>データ駆動</h3><p>職業・スキル・タワー・敵・アイテムはすべて Resource 定義。MOD も同じ枠組みで追加可能。</p></div>
+  </section>
+  <section class="lore">
+    黄昏のダークファンタジー、しかし英雄譚。<br />
+    拠点から出立し、フィールドを駆け、結界石にて防衛戦を行う。<br />
+    報酬を抱えて拠点へ戻り、装備を整え、次のエリアへ。<br />
+    その先にあるのは ── 魔王城。
   </section>
 </main>
-<footer>&copy; Open Dungeons. Pre-alpha scaffold. Godot 4.3+ / .NET 8.</footer>
+<footer>&copy; Open Dungeons. プレアルファ・スキャフォールド版。Godot 4.3+ / .NET 8。</footer>
 </body>
 </html>

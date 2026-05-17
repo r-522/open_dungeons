@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WaveTemplate" load_steps=3 format=3]
+[ext_resource type="Script" path="res://scripts/domain/WaveTemplate.cs" id="1"]
+[sub_resource type="Resource" id="e1"]
+script = ExtResource("1")
+EnemyId = "goblin"
+Count = 8
+SpawnInterval = 0.5
+[resource]
+script = ExtResource("1")
+Id = "forest_w1"
+Entries = [SubResource("e1")]

@@ -2,8 +2,8 @@
 config_version=5
 
 [application]
-config/name="Open Dungeons"
-config/description="Open world x Tower Defense x Action RPG (co-op PvE)"
+config/name="オープン・ダンジョンズ"
+config/description="オープンワールド × タワーディフェンス × アクションRPG（協力型PvE）"
 config/version="0.1.0"
 run/main_scene="res://scenes/ui/Title.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
@@ -47,7 +47,8 @@ pause={"deadzone":0.2,"events":[{"keycode":4194305,"type":"InputEventKey"}]}
 
 [internationalization]
 locale/translations=PackedStringArray("res://localization/strings.ja.translation","res://localization/strings.en.translation","res://localization/strings.zh.translation","res://localization/strings.ko.translation","res://localization/strings.es.translation")
-locale/fallback="en"
+locale/fallback="ja"
+locale/test="ja"
 
 [physics]
 common/physics_ticks_per_second=30

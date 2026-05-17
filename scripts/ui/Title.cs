@@ -7,13 +7,19 @@ public partial class Title : Control
 {
     public override void _Ready()
     {
-        var play = GetNodeOrNull<Button>("%PlayButton");
-        if (play != null) play.Pressed += () =>
+        Hook("%PlayButton", () =>
         {
             GameManager.Instance.SetState(GameState.Loadout);
-            GetTree().ChangeSceneToFile("res://scenes/ui/MainMenu.tscn");
-        };
-        var quit = GetNodeOrNull<Button>("%QuitButton");
-        if (quit != null) quit.Pressed += () => GetTree().Quit();
+            GetTree().ChangeSceneToFile("res://scenes/ui/Loadout.tscn");
+        });
+        Hook("%MultiButton", () => GetTree().ChangeSceneToFile("res://scenes/ui/Multiplayer.tscn"));
+        Hook("%SettingsButton", () => GetTree().ChangeSceneToFile("res://scenes/ui/Settings.tscn"));
+        Hook("%QuitButton", () => GetTree().Quit());
+    }
+
+    private void Hook(string path, System.Action a)
+    {
+        var b = GetNodeOrNull<Button>(path);
+        if (b != null) b.Pressed += a;
     }
 }

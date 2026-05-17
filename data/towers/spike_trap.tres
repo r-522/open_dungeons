@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TowerDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/domain/TowerDefinition.cs" id="1"]
+[resource]
+script = ExtResource("1")
+Id = "spike_trap"
+NameKey = "TOWER.BERSERKER.SPIKE.NAME"
+Cost = 35
+BaseDamage = 22
+Range = 3.0
+FireInterval = 0.5
