@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[node name="SampleMap" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="Shape" type="CollisionShape3D" parent="Ground"]
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7, 0.7, 0, -0.7, 0.7, 0, 10, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="SpawnRoot" type="Node3D" parent="."]
+
+[node name="PlacementRoot" type="Node3D" parent="."]

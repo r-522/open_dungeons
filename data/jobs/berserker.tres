@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="JobDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/domain/JobDefinition.cs" id="1"]
+
+[resource]
+script = ExtResource("1")
+Id = "berserker"
+NameKey = "JOB.BERSERKER.NAME"
+Role = "MeleeDPS"
+BaseHP = 120
+BaseMP = 30
+BaseAttack = 22
+BaseDefense = 6
+HpPerLevel = 14
+MpPerLevel = 3
+AtkPerLevel = 4
+DefPerLevel = 1

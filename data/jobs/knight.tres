@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="JobDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/domain/JobDefinition.cs" id="1"]
+
+[resource]
+script = ExtResource("1")
+Id = "knight"
+NameKey = "JOB.KNIGHT.NAME"
+Role = "Tank"
+BaseHP = 160
+BaseMP = 40
+BaseAttack = 12
+BaseDefense = 12
+HpPerLevel = 18
+MpPerLevel = 4
+AtkPerLevel = 2
+DefPerLevel = 2
