@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TowerDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/domain/TowerDefinition.cs" id="1"]
+[resource]
+script = ExtResource("1")
+Id = "frost_tower"
+NameKey = "TOWER.WIZARD.FROST.NAME"
+Cost = 80
+BaseDamage = 10
+Range = 11.0
+FireInterval = 1.1
+Element = 4

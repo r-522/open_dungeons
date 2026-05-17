@@ -2,12 +2,50 @@ keys,ja,en,zh,ko,es
 UI.MAIN.PLAY,プレイ,Play,开始,플레이,Jugar
 UI.MAIN.QUIT,終了,Quit,退出,종료,Salir
 UI.MAIN.SETTINGS,設定,Settings,设置,설정,Ajustes
+UI.MAIN.LOADOUT,ロードアウト,Loadout,装备,로드아웃,Equipo
+UI.MAIN.MULTIPLAYER,マルチプレイ,Multiplayer,多人游戏,멀티플레이,Multijugador
+UI.MAIN.HOST,ホスト開始,Host,创建房间,호스트,Anfitrión
+UI.MAIN.JOIN,参加,Join,加入,참가,Unirse
+UI.MAIN.BACK,戻る,Back,返回,뒤로,Atrás
+UI.LOADOUT.SELECT_JOB,職業を選択,Select Job,选择职业,직업 선택,Elige clase
+UI.LOADOUT.START,出撃,Start,出击,출격,Iniciar
+UI.HUD.HP,HP,HP,生命,체력,PV
+UI.HUD.MP,MP,MP,魔力,마나,PM
+UI.HUD.MANA,マナ,Mana,法力,마나,Maná
+UI.HUD.WAVE,ウェーブ,Wave,波次,웨이브,Oleada
+UI.SETTINGS.GRAPHICS,グラフィック,Graphics,画面,그래픽,Gráficos
+UI.SETTINGS.SOUND,サウンド,Sound,声音,사운드,Sonido
+UI.SETTINGS.CONTROLS,操作,Controls,操作,조작,Controles
+UI.SETTINGS.LANGUAGE,言語,Language,语言,언어,Idioma
 JOB.KNIGHT.NAME,騎士,Knight,骑士,기사,Caballero
+JOB.KNIGHT.DESC,前線維持と被ダメ軽減に優れたタンク。塔の支援も得意。,Frontline tank with damage mitigation and tower support.,坚守前线的坦克。,전선 유지에 능한 탱커.,Tanque de primera línea.
 JOB.BERSERKER.NAME,狂戦士,Berserker,狂战士,광전사,Berserker
+JOB.BERSERKER.DESC,高火力の近接DPS。局所突破と一点集中破壊を担う。,High-damage melee DPS specialised in burst breakthroughs.,高输出近战。,고화력 근접 딜러.,DPS cuerpo a cuerpo de alto daño.
 JOB.RANGER.NAME,レンジャー,Ranger,游侠,레인저,Explorador
+JOB.RANGER.DESC,遠距離処理と罠運用に長けた索敵型DPS。,Ranged DPS who scouts and lays traps from afar.,远程与陷阱专家。,원거리·함정 운용.,DPS a distancia con trampas.
 JOB.WIZARD.NAME,魔術師,Wizard,法师,마법사,Mago
+JOB.WIZARD.DESC,範囲制圧と属性操作で戦況を変える支援魔法職。,Magical support reshaping the field via AoE and elements.,范围控制与属性支援。,범위 제압과 속성 지원.,Soporte mágico con AoE.
 ENEMY.GOBLIN.NAME,ゴブリン,Goblin,哥布林,고블린,Goblin
+ENEMY.ORC.NAME,オーク,Orc,兽人,오크,Orco
+ENEMY.WRAITH.NAME,亡霊,Wraith,亡灵,망령,Espectro
+ENEMY.GARGOYLE.NAME,ガーゴイル,Gargoyle,石像鬼,가고일,Gárgola
+ENEMY.DEMON_LORD.NAME,魔王,Demon Lord,魔王,마왕,Señor Demonio
 TOWER.RANGER.ARROW.NAME,矢の塔,Arrow Tower,箭塔,화살탑,Torre de Flechas
+TOWER.WIZARD.FROST.NAME,氷結の塔,Frost Tower,寒冰塔,서리탑,Torre de Hielo
+TOWER.KNIGHT.BULWARK.NAME,城壁塔,Bulwark Tower,壁垒塔,성벽탑,Torre Bastión
+TOWER.BERSERKER.SPIKE.NAME,棘の罠,Spike Trap,尖刺陷阱,가시 함정,Trampa de Púas
+SKILL.WIZARD.ICE_BOLT.NAME,アイスボルト,Ice Bolt,冰矢,아이스 볼트,Saeta de Hielo
+SKILL.RANGER.SNARE.NAME,捕縛の罠,Snare Trap,捕缚陷阱,포박 함정,Trampa de Lazo
+SKILL.KNIGHT.GUARD.NAME,鉄壁の構え,Iron Guard,铁壁姿态,철벽 자세,Guardia de Hierro
+SKILL.BERSERKER.RAGE.NAME,憤怒解放,Unleash Rage,狂怒解放,분노 해방,Furia Desatada
+PHASE.IDLE,待機中,Idle,待机,대기,Inactivo
 PHASE.PREP,準備フェーズ,Preparation,准备阶段,준비 단계,Preparación
 PHASE.COMBAT,戦闘フェーズ,Combat,战斗阶段,전투 단계,Combate
 PHASE.RESULT,リザルト,Result,结算,결과,Resultado
+ITEM.SWORD.NAME,鋼の剣,Steel Sword,钢剑,강철검,Espada de Acero
+ITEM.BOW.NAME,長弓,Longbow,长弓,장궁,Arco Largo
+ITEM.STAFF.NAME,魔導の杖,Arcane Staff,法杖,마법 지팡이,Bastón Arcano
+ITEM.POTION.NAME,治癒の薬,Healing Potion,治疗药水,치유 물약,Poción Curativa
+AFFIX.OF_POWER,力の,of Power,力量的,힘의,de Poder
+AFFIX.OF_SWIFTNESS,迅速の,of Swiftness,迅捷的,신속의,de Rapidez
+AFFIX.OF_FLAME,炎の,of Flame,炎之,화염의,de Llama

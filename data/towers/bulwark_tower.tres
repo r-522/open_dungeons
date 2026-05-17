@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TowerDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/domain/TowerDefinition.cs" id="1"]
+[resource]
+script = ExtResource("1")
+Id = "bulwark_tower"
+NameKey = "TOWER.KNIGHT.BULWARK.NAME"
+Cost = 60
+BaseDamage = 0
+Range = 6.0
+FireInterval = 2.0

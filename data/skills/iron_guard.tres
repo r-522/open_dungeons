@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SkillDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/domain/SkillDefinition.cs" id="1"]
+[resource]
+script = ExtResource("1")
+Id = "iron_guard"
+NameKey = "SKILL.KNIGHT.GUARD.NAME"
+Cooldown = 12.0
+ManaCost = 20
+BaseDamage = 0
+Range = 0.0
+Targeting = 0

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkillDefinition" load_steps=2 format=3]
+[ext_resource type="Script" path="res://scripts/domain/SkillDefinition.cs" id="1"]
+[resource]
+script = ExtResource("1")
+Id = "unleash_rage"
+NameKey = "SKILL.BERSERKER.RAGE.NAME"
+Cooldown = 30.0
+ManaCost = 40
+BaseDamage = 120
+Range = 4.0
+Radius = 4.0
+Targeting = 2
